@@ -1,0 +1,44 @@
+PatientNameQuestionIntent My name is {PatientName}
+PatientNameQuestionIntent {PatientName} is my name
+PatientNameQuestionIntent i'm {PatientName}
+
+PatientInfoQuestionIntent I've {PatientAge} years old.
+PatientInfoQuestionIntent {PatientAge} years old. 
+
+BJointQuestionIntent pain in {BJointType} joint
+BJointQuestionIntent {BJointType} joint
+
+
+BPainWorseQuestionIntent at {BWorseTimeType}
+BPainWorseQuestionIntent feel worst at {BWorseTimeType}
+
+MedicalCategoryIntent {Category} is my choice
+MedicalCategoryIntent my choice is {Category}
+MedicalCategoryIntent I feel pain in my {Category}
+MedicalCategoryIntent pain in my {Category}
+MedicalCategoryIntent pain in {Category}
+MedicalCategoryIntent in my {Category}
+
+DateQuestionIntent since {SinceDuration}
+DateQuestionIntent from about {SinceDuration}
+
+SPainTypeQuestionIntent it is {SPainType}
+SPainTypeQuestionIntent pain type is {SPainType}
+
+SRadiateQuestionIntent it is radiate in {SRadiateType}
+SRadiateQuestionIntent radiate in {SRadiateType}
+SRadiateQuestionIntent the most in {SRadiateType}
+
+
+AMAZON.StartOverIntent start menu
+AMAZON.StartOverIntent again
+AMAZON.StartOverIntent menu
+AMAZON.StartOverIntent start menu again
+
+DontKnowIntent i don't know
+DontKnowIntent don't know
+DontKnowIntent i don't know that
+DontKnowIntent who knows
+DontKnowIntent i don't understand this question
+DontKnowIntent i don't know that one
+DontKnowIntent help

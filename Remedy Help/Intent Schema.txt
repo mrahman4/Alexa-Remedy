@@ -1,0 +1,100 @@
+{
+  "intents": [
+    {
+      "intent": "PatientNameQuestionIntent",
+      "slots": [
+        {
+          "name": "PatientName", 
+          "type": "AMAZON.US_FIRST_NAME"
+        }
+      ]
+    },
+    {
+      "intent": "PatientInfoQuestionIntent",
+      "slots": [
+        {
+          "name": "PatientAge", 
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "MedicalCategoryIntent",
+      "slots": [
+        {
+          "name": "Category",
+          "type": "LIST_OF_Categories"
+        }
+      ]
+    },
+    {
+      "intent": "DateQuestionIntent",
+      "slots": [
+       {
+          "name": "SinceDuration",
+          "type": "AMAZON.DURATION"
+        }
+      ]
+    },
+    {
+      "intent": "SPainTypeQuestionIntent",
+      "slots": [
+       {
+          "name": "SPainType",
+          "type": "LIST_OF_S_PAIN_TYPES"
+        }
+      ]
+    },
+    {
+      "intent": "SRadiateQuestionIntent",
+      "slots": [
+       {
+          "name": "SRadiateType",
+          "type": "LIST_OF_S_Radiate_TYPES"
+        }
+      ]
+    },
+    {
+      "intent": "BJointQuestionIntent",
+      "slots": [
+       {
+          "name": "BJointType",
+          "type": "LIST_OF_B_Joint_TYPES"
+        }
+      ]
+    },
+    {
+      "intent": "BPainWorseQuestionIntent",
+      "slots": [
+       {
+          "name": "BWorseTimeType",
+          "type": "LIST_OF_B_WORSE_TIME_TYPES"
+        }
+      ]
+    },
+    {
+      "intent": "DontKnowIntent"
+    },
+    {
+      "intent": "AMAZON.StartOverIntent"
+    },
+    {
+      "intent": "AMAZON.RepeatIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.YesIntent"
+    },
+    {
+      "intent": "AMAZON.NoIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}

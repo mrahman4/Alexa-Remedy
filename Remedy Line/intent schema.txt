@@ -1,0 +1,52 @@
+{
+  "intents": [
+    {
+      "intent": "MedicalCategoryIntent",
+      "slots": [
+        {
+          "name": "Category",
+          "type": "LIST_OF_Categories"
+        }
+      ]
+    },
+    {
+      "intent": "MedicineIntent",
+      "slots": [
+        {
+          "name": "Medicine",
+          "type": "LIST_OF_Medicines"
+        }
+      ]
+    },
+    {
+      "intent": "AnalysisIntent",
+      "slots": [
+        {
+          "name": "Analysis",
+          "type": "LIST_OF_Analyses"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.StartOverIntent"
+    },
+    {
+      "intent": "AMAZON.RepeatIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.YesIntent"
+    },
+    {
+      "intent": "AMAZON.NoIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}
