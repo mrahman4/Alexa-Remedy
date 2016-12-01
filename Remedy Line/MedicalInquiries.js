@@ -10,7 +10,7 @@ var NO_CATEGORY_SELECTED        = 0 ;
 var CATEGORY_BONES              = 1 ;
 var CATEGORY_STOMACH            = 2 ;
 
-//InquiryStatus
+//InquiryStatusc
 var INQUIRY_NEW                 = 0;
 var INQUIRY_WAITING_FOR_ANSWER  = 1;
 var INQUIRY_ANSWERED            = 2;
@@ -206,13 +206,12 @@ function handleGetHelpRequest(intent, session, callback)
         + "<break time=\"0.2s\" />And you will be able to provide advice for such inquiries that requester can apply" 
         + "Please choose category</speak>";
         
-    /*
-        var speechOutput = "<speak>" 
+    
+        /*var speechOutput = "<speak>" 
         + "<break time=\"0.2s\" />With Remedy Line you can look up inquiries about various categories "
         + "<break time=\"0.2s\" />And you will be able to provide advice for such inquiries that requester can apply" 
-        + "Please choose category</speak>";
+        + "Please choose category</speak>";*/
     
-    */
         
     var repromptText = "This tool does not provide medical advice, and is for informational and educational purposes only, and is not a substitute for professional medical advice, treatment or diagnosis. Call your doctor to receive medical advice. If you think you may have a medical emergency, please dial 911" 
         + " This tool is used for one of Alexa contests so Please don't share any personal or real information as this tool is for educational purpose only and will give a dummy feedback."    
@@ -231,7 +230,6 @@ function getWelcomeResponse(helpFlag , event , context , session, callback)
     console.log("New session = " + session.sessionId + " . user ID= " + session.user.userId );
     /*var sessionAttributes = {},
         speechOutput = "Here is Remedy Line",
-        shouldEndSession = false,
         repromptText = "Here is Remedy Line";*/
         
         getCategory(false , session, callback); 
@@ -250,7 +248,11 @@ function getCategory(helpFlag , session, callback)
         
     speechOutput = "<speak>This tool does not provide medical advice, and is for informational and educational purposes only, and is not a substitute for professional medical advice, treatment or diagnosis. Call your doctor to receive medical advice. If you think you may have a medical emergency, please dial 911" 
         + "This tool is used for one of Alexa contests so Please don't share any personal or real information as this tool is for educational purpose only and will give a dummy feedback"
-        +"Please choose category";
+        +"Dear advisor, to check pending inquiries, Please choose category";
+    
+    /*speechOutput = "<speak>" 
+        + "Dear advisor, to check pending inquiries, please choose category";*/
+    
     
     repromptText = "This tool does not provide medical advice, and is for informational and educational purposes only, and is not a substitute for professional medical advice, treatment or diagnosis. Call your doctor to receive medical advice. If you think you may have a medical emergency, please dial 911" 
         + "This tool is used for one of Alexa contests so Please don't share any personal or real information as this tool is for educational purpose only and will give a dummy feedback."
@@ -407,21 +409,24 @@ function handlePatientCase(userID , patientCase, context, session, callback)
 */
 function getRecommendedMedicine(patientID, patientCase, context, session, callback)
 {    
-    console.log("Medicine Recommendation");
+    
     
     var sessionAttributes = {};
     var speechOutput; 
     var repromptText;
     var shouldEndSession;
-    var doctorFeedback;
+    var doctorFeedback = " ";
     
     if(patientCase !== "")
     {
-        console.log("case found");
+        console.log("patient case found" );
+        console.log("patientID = " + patientID);
+        console.log("patientCase = " + patientCase);
+        
     
         shouldEndSession = false; 
         speechOutput = "<speak>" + patientCase + " Which medicine do you advice?</speak>";
-        repromptText = patientCase + " Which medicine do you advice?";
+        repromptText = " Which medicine do you advice?";
     
         sessionAttributes = {
             "speechOutput": speechOutput,
@@ -450,6 +455,8 @@ function getRecommendedMedicine(patientID, patientCase, context, session, callba
 
 function handleMedicineSelect(context, intent, session, callback) 
 {
+    console.log("Medicine Recommendation");
+    
     var medicine = null;
     
     if( intent.slots && intent.slots.Medicine && intent.slots.Medicine.value )
@@ -462,7 +469,11 @@ function handleMedicineSelect(context, intent, session, callback)
         medicine = intent.slots.Medicine.toString().toLowerCase().trim();        
     }
     
+    console.log("Medicine Intent Captured");
+    
     session.attributes.doctorFeedback = "Using " + medicine + " is recommended" + " . <break time=\"0.2s\" />" ;
+    
+    console.log("Medicine Intent Stored in Session");
     
     getRecommendedAnalysis(session, callback);
     
@@ -512,7 +523,7 @@ function handleAnalysisSelect(context, intent, session, callback)
     updatePatientCase(context, session, function()
         {
             console.log("Update patient Info in DB.");
-            context.succeed(handleFinishSessionRequest("<speak>Advice is recorder. Have a healthy life. Good bye!</speak>" , session, callback));
+            context.succeed(handleFinishSessionRequest("<speak>Advice is recorded. Have a healthy life. Good bye!</speak>" , session, callback));
         });
 }
 

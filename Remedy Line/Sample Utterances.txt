@@ -1,8 +1,9 @@
 MedicalCategoryIntent {Category} is my choice
 MedicalCategoryIntent {Category}
 MedicalCategoryIntent my choice is {Category}
-MedicalCategoryIntent I feel pain in my {Category}
 
+
+MedicineIntent selected medicine is {Medicine}
 MedicineIntent {Medicine} is my choice
 MedicineIntent {Medicine}
 MedicineIntent my choice is {Medicine}
@@ -10,11 +11,10 @@ MedicineIntent my choice is {Medicine}
 AnalysisIntent {Analysis} is my choice
 AnalysisIntent {Analysis}
 AnalysisIntent my choice is {Analysis}
+AnalysisIntent {Analysis} is recomended
 
 
 AMAZON.StartOverIntent start menu
 AMAZON.StartOverIntent again
 AMAZON.StartOverIntent menu
 AMAZON.StartOverIntent start menu again
-
-

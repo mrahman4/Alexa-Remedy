@@ -675,12 +675,12 @@ function prepareUnansweredInquiry(callback)
         + " Have a healthy life. see you soon! <break time=\"0.2s\" /> bye."
         + "</speak>";
         
-        /*
-        speechOutput = "<speak>"
+        
+        /*speechOutput = "<speak>"
         +"<break time=\"0.2s\" /> Dear Patient, You have unanswered inquiry right now. <break time=\"0.2s\" /> Please check back later with Alexa for remedy service feedback. "
         + " Have a healthy life. see you soon! <break time=\"0.2s\" /> bye."
-        + "</speak>";
-        */
+        + "</speak>";*/
+        
         
     var repromptText = "This tool does not provide medical advice, and is for informational and educational purposes only, and is not a substitute for professional medical advice, treatment or diagnosis. Call your doctor to receive medical advice. If you think you may have a medical emergency, please dial 911"
         + " This tool is used for one of Alexa contests so Please don't share any personal or real information as this tool is for educational purpose only and will give a dummy feedback."
@@ -705,10 +705,10 @@ function preparePatientNameRequest(helpFlag, session, callback)
                         + "<break time=\"0.2s\" />treatment or diagnosis. Call your doctor to receive medical advice. If you think you may have a medical emergency, please dial 911" 
                         + "<break time=\"0.2s\" />This tool is used for one of Alexa contests so Please don't share any personal or real information as this tool is for educational purpose only and will give a dummy feedback"
                         + "<break time=\"0.3s\" /> Dear Patient, <break time=\"0.2s\" /> what is your first name ? ",
-        /*
-        speechOutput = "<speak>"
-                        + "<break time=\"0.3s\" /> Dear Patient, <break time=\"0.2s\" /> what is your first name ? ",
-        */
+        
+        /*speechOutput = "<speak>"
+                        + "<break time=\"0.3s\" /> Dear Patient, <break time=\"0.2s\" /> what is your first name ? ",*/
+        
         
         shouldEndSession = false;
         
@@ -776,11 +776,11 @@ function prepareStatusMessages(doctorFeedback , session,  callback)
                 + "<break time=\"0.2s\" /> Remedy service feedback is <break time=\"0.2s\" /> "+ doctorFeedback ;
     
     
-    /*
-    doctorFeedback = "<speak>" 
-                + "<break time=\"0.2s\" /> Remedy service feedback is <break time=\"0.2s\" /> "+ doctorFeedback ;
     
-    */
+    /*doctorFeedback = "<speak>" 
+                + "<break time=\"0.2s\" /> Remedy service feedback is <break time=\"0.2s\" /> "+ doctorFeedback ;*/
+    
+    
     
     handleFinishSessionRequest(doctorFeedback + "<break time=\"0.2s\" /> Have a healthy life. see you soon! bye.</speak>" , session, callback);   
 }
@@ -836,7 +836,7 @@ function handlePatientInfoRequest( context, intent, session, callback)
     if ( patientAge !== "" )
     {
         console.info("Patient Age = " + patientAge );
-        session.attributes.patientCase = "Patient age is " +  patientAge + " . <break time=\"0.2s\" /> ";
+        session.attributes.patientCase = "age is " +  patientAge + " .  ";
         //insertInquryDetailesTable(context, session.user.userId , "Patient age is " +  patientAge , NO_CATEGORY_SELECTED , INQUIRY_NEW);
         
         
@@ -900,7 +900,7 @@ function handleDateQuestionRequest(  context, intent, session, callback)
     if ( sinceWhen !== "" )
     {
         console.info("Pain since = " + sinceWhen );
-        session.attributes.patientCase += "Patient has felt the pain since " + sinceWhen + " . <break time=\"0.2s\" />" ;
+        session.attributes.patientCase += "Patient  felt the pain " + sinceWhen + " . " ;
         //insertInquryDetailesTable(context, session.user.userId, "Patient has felt the pain since " + sinceWhen , NO_CATEGORY_SELECTED , INQUIRY_NEW);    
         
         //list categories we have
@@ -1029,7 +1029,7 @@ function handleBonesQ1(  context, intent, session, callback)
     
     if( BJointType !== "" )
     {
-        session.attributes.patientCase += "Number of affected joints " + BJointType + " . <break time=\"0.2s\" />" ;
+        session.attributes.patientCase += "affected joints " + BJointType + " . " ;
         
         //insertInquryDetailesTable(context, session.user.userId , "Number of affected joints " + intent.slots.BJointType  , CATEGORY_BONES, INQUIRY_NEW );
         console.info("Number of affected joints = " + BJointType  );
@@ -1093,7 +1093,7 @@ function handleBonesQ2(  context, intent, session, callback)
     if( BWorseTimeType !== "")
     {
         session.attributes.painCategory = CATEGORY_BONES ;
-        session.attributes.patientCase += "Pain feel worse at " +  BWorseTimeType + " . <break time=\"0.2s\" /> " ;
+        session.attributes.patientCase += "Pain worse at " +  BWorseTimeType + " . " ;
         
         //insertInquryDetailesTable(context, session.user.userId , "Pain feel worse at " + intent.slots.BWorseTimeType.value , CATEGORY_BONES, INQUIRY_WAITING_FOR_ANSWER );
         //insertPatientInquiryInTable(context, session.user.userId , session);
@@ -1161,7 +1161,7 @@ function handleStomachQ1(  context, intent, session, callback)
     {
         console.info("Type of pain = " + SPainType );
         
-        session.attributes.patientCase += "Type of pain is " + SPainType + " . <break time=\"0.2s\" /> " ;
+        session.attributes.patientCase += "Type of pain is " + SPainType + " . " ;
         
         //insertInquryDetailesTable(context, session.user.userId , "Type of pain is " + intent.slots.SPainType.value , CATEGORY_STOMACH, INQUIRY_NEW);
         prepareStomachQ2(false, session, callback);
@@ -1224,7 +1224,7 @@ function handleStomachQ2(  context, intent, session, callback)
     if( SRadiateType !== "")
     {
         console.info("Radiate Type = " + SRadiateType );
-        session.attributes.patientCase += "Radiate Type is " +  SRadiateType + " . <break time=\"0.2s\" /> ";
+        session.attributes.patientCase += "Radiate is " +  SRadiateType + " . ";
         session.attributes.painCategory = CATEGORY_STOMACH ;
         
         
